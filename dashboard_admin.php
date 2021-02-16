@@ -607,10 +607,12 @@
                 $('#updImg').css('display', 'block');
                 $('#updIdGallery').val(imgSelector);
 
+                let checkName = '';
+
                 <?php getGallery(); ?>
 
                 <?php if($resultGallery) while($itemGallery = mysqli_fetch_array($resultGallery)):;?>
-                    let checkName = "<?php echo $itemGallery[0];?>";
+                    checkName = "<?php echo $itemGallery[0];?>";
                     if(checkName == imgSelector){
                         $("#updTitleGallery").val("<?php echo $itemGallery[1];?>");
                     }
@@ -646,11 +648,12 @@
                 let postSelector = $(this).val();
                 $('#updPost').css('display', 'block');
                 $('#updIdBlog').val(postSelector);
+                let checkName = '';
 
                 <?php getPosts(); ?>
 
                 <?php if($resultBlog) while($itemBlog = mysqli_fetch_array($resultBlog)):;?>
-                    let checkName = "<?php echo $itemBlog[0];?>";
+                    checkName = "<?php echo $itemBlog[0];?>";
                     if(checkName == postSelector){
                         $("#updTitlePost").val("<?php echo $itemBlog[1];?>");
                         $("#updTextPost").summernote("code", "<?php echo $itemBlog[3];?>");
